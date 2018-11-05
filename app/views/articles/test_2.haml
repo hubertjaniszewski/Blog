@@ -1,0 +1,27 @@
+%h1 Listing all articles
+%p
+  = link_to "Crate new article", new_article_path
+%div{:align => "center"}
+  = will_paginate
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Cos tam
+  - @articles.each do |article|
+    %tr
+      %td= article.title
+      %td= article.description
+      %td= article.is_shorter_than?(10)
+      %td
+        %small
+          Created by: #{article.user.username if article.user},
+          \#{time_ago_in_words(article.created_at)} ago,
+          last updated: #{time_ago_in_words(article.updated_at)} ago
+      - if can? :update, article
+        %td= link_to 'Edit', edit_article_path(article)
+      %td= link_to 'Show', article_path(article)
+      - if can? :destroy, article
+        %td= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: "Are You sure"}
+%div{:align => "center"}
+  = will_paginate

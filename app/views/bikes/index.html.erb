@@ -1,0 +1,40 @@
+<head>
+<style>
+td {
+    text-align: center;
+    width: 75px;
+    height: 30px;
+}
+thead {
+    font-weight: bold;
+}
+</style>
+</head>
+<h1>Witaj w klasie Bike</h1>
+<%= link_to "Build a new bike", new_bike_path %> <br/><br/>
+<table>
+    <tr>
+    <thead>
+        <td> Brand </td>
+        <td> Color </td>
+        <td> Year </td>
+        <td> Wheels </td>
+
+    </thead>
+    </tr>
+    <tbody>
+        <% @bikes.each do |bike| %> 
+            <tr>
+                <td> <%= bike.brand %> </td>
+                <td> <%= bike.color %> </td>
+                <td> <%= bike.year_of_production %> </td>
+                <td> <%= bike.wheels %>  </td>
+                <td> <%= link_to "Edit", edit_bike_path(bike) %> </td>
+                <td> <%= link_to "Show", bike_path(bike) %> </td>
+                <td> <%= link_to "Destroy", bike_path(bike), method: :delete, data: {confirm: "Are you sure?"} %> </td>
+                <td> <%= bike.is?("Romet") %> </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+

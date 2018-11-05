@@ -1,0 +1,39 @@
+<h1>Showing selected article</h1>
+
+<p>
+    Title: <%= @article.title %>
+</p>
+
+<p>
+    Description: <%= @article.description %>
+</p>
+
+<%= link_to "Edit this article", edit_article_path(@article) %> |
+<%= link_to 'Back to articles listing', articles_path %>
+
+
+
+<p>Comments:</p>
+
+<div>
+<% @comments.each do |comment| %>
+    <p><%= comment.text %>
+    <% if can? :destroy, comment %>
+        <%= link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: {confirm: "Are You sure"} %></p>
+    <% end %>
+<% end %>
+</div>
+
+<div>
+    <p>Write a comment</p>
+<%= form_for [@article, @comment] do |c| %>
+   
+    <p>
+        <%= c.text_area :text %>
+    </p>
+    <p>
+        <%= c.submit %>
+    </p>
+</div>
+<% end %>
+
