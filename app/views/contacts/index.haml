@@ -1,0 +1,12 @@
+%table
+  - @messages.each do |message|
+    %tr
+      %td= message.email
+      %td= message.title
+      %td= message.description
+      %td
+        %small
+          ___Created 
+          \#{time_ago_in_words(message.created_at)} ago,
+          last updated: #{time_ago_in_words(message.updated_at)} ago
+      %td= link_to 'Destroy', contact_path(message), method: :delete, data: {confirm: "Are You sure"}

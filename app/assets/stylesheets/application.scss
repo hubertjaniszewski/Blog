@@ -43,7 +43,26 @@ $navbar-default-bg: black;
      letter-spacing: -1px;
      font-weight: bold;
  }
+.zdj    {
+    margin-top: 230px;
+    margin-left: 140px;
+    background-image: url('mail.jpeg');
+    width: 225px;
+    height: 225px;  
+}
+.col-xs-12 {
 
+    margin-top: 80px;
+    padding-bottom: 300px;
+    padding-bottom: 100px;
+    padding-left: 500px;
+    padding-right: 30px;
+    padding-top: 50px;
+    text-align: center;
+    background-color: grey;
+    border-radius: 3%;
+    font-size: 20px;
+}
  .btn-xlarge {
      font-size: 1.7em;
      background-color: black;
@@ -53,7 +72,17 @@ $navbar-default-bg: black;
      list-style: none;
      padding-left: 0;
  }
-
+.email {
+    padding-bottom: 120px;
+    background-color: lightgrey;
+    border-radius: 3%;
+}
+ .foot {
+     margin-top: 720px;
+ }
+.link {
+    text-align: center;
+}
  .footer {
      margin-top: 45px;
      padding-top: 5px;
