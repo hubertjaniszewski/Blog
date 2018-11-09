@@ -40,8 +40,8 @@ Rails.application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'eengine.pl',
-  user_name:            'hubert.janiszewski@eengine.pl',
-  password:             '123qweasdzxc',
+  user_name:            ENV['GMAIL_USERNAME'],
+  password:             ENV['GMAIL_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true }
   # Print deprecation notices to the Rails logger.

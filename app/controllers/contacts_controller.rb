@@ -3,11 +3,11 @@ class ContactsController < ApplicationController
 
 
     def new
-        @message = Message.new
+        @message = @contact
     end
 
     def index
-        @message = Message.all
+        @messages = @contacts
     end
 
     def create
@@ -22,10 +22,14 @@ class ContactsController < ApplicationController
     end
 
     def destroy
-        @message = Message.find(params[:id])
+        @message = @contact
         @message.destroy
-        flash[:success] = "Message was successfully deleted"
+        if @message.destroy
+            flash[:success] = "Message was successfully deleted"
         redirect_to contacts_path
+        else
+            flash[:danger] = "Message was successfully deleted"
+        end
     end
 
     private

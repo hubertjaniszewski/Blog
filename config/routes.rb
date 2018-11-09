@@ -10,7 +10,7 @@ resources :articles do
   get :test_2, on: :collection
 end
 
-resources :contacts
+resources :contacts, except: [:update]
 
 resources :bikes
 
