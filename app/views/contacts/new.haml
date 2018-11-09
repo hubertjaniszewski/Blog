@@ -1,0 +1,41 @@
+- if @message.errors.any?
+  .row
+    .col-xs-8.col-xs-offset-2
+      .panel.panel-danger
+        .panel-heading
+          %h2.panel-title
+            = pluralize(@message.errors.count, "error")
+            prohibited this message from being saved:
+          = succeed "\"panel-body\">" do
+            %div
+          %ul
+            - @message.errors.full_messages.each do |msg|
+              %li= msg
+
+.row
+  .col-xs-12
+    = form_for @message, url: contacts_path do |f|
+      .email
+        %br/
+        = f.label :email
+        %br/
+        = f.text_field :email
+        %br/
+        %br/
+        = f.label :title
+        %br/
+        = f.text_field :title
+        %br/
+        %br/
+        = f.label :description
+        %br/
+        = f.text_area :description
+        %br/
+        %br/
+        = f.submit
+  .zdj
+
+%br/
+%br/
+.cos
+  [ #{link_to 'Cancel request and return to articles listing', articles_path} ]

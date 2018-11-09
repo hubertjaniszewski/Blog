@@ -12,6 +12,8 @@ class Ability
       can :create, Comment
       cannot :read, User
       can :test_2, Article
+      cannot :read, Message
+      can :create, Message
       if user.admin?
         can :manage, :all
       end
