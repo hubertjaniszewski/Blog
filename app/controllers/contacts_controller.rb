@@ -23,7 +23,6 @@ class ContactsController < ApplicationController
 
     def destroy
         @message = @contact
-        @message.destroy
         if @message.destroy
             flash[:success] = "Message was successfully deleted"
         redirect_to contacts_path
